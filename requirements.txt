@@ -1,6 +1,6 @@
 streamlit
 wordcloud
 PyPDF2
-matplotlib.pyplot
+matplotlib
 nltk
 re

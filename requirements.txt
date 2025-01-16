@@ -1,6 +1,5 @@
 pandas
 numpy
-steamlit
 scikit-learn
 wordcloud
 PyPDF2

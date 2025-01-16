@@ -2,7 +2,6 @@ pandas
 numpy
 scikit-learn
 nltk
-nltk.download('punkt_tab')
 wordcloud
 PyPDF2
 matplotlib

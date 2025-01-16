@@ -1,6 +1,9 @@
-streamlit
+pandas
+numpy
+steamlit
+scikit-learn
 wordcloud
 PyPDF2
 matplotlib
 nltk
-re
+seaborn

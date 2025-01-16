@@ -6,17 +6,26 @@ import nltk
 from nltk.corpus import stopwords
 import re
 
-# Download NLTK data
+# Ensure NLTK resources are available
 def download_nltk_resources():
-    nltk.download('stopwords')
-    nltk.download('punkt')
+    try:
+        nltk.data.find('tokenizers/punkt')
+    except LookupError:
+        nltk.download('punkt')
+    try:
+        nltk.data.find('corpora/stopwords')
+    except LookupError:
+        nltk.download('stopwords')
 
 # Preprocess text
 def preprocess_text(text):
+    # Download resources if not already available
+    download_nltk_resources()
+    
     # Lowercase the text
     text = text.lower()
     # Remove special characters, numbers, and punctuation
-    text = re.sub(r'[^a-zA-Z\s]', '', text)
+    text = re.sub(r'[^a-zA-Z\\s]', '', text)
     # Tokenize and remove stopwords
     stop_words = set(stopwords.words('english'))
     words = nltk.word_tokenize(text)
@@ -46,7 +55,6 @@ if pdf_file is not None:
         st.write(extracted_text[:500] + "...")  # Show a preview of the text
 
         # Preprocess the text
-        download_nltk_resources()
         preprocessed_text = preprocess_text(extracted_text)
 
         # Generate word cloud
